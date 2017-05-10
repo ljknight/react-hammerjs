@@ -55,7 +55,7 @@ function updateHammer (hammer, props) {
 
 	const directionProp = props.direction;
 	if (directionProp || props.hasOwnProperty('vertical')) {
-		direction = directionProp ? directionProp : (props.vertical ? 'DIRECTION_ALL' : 'DIRECTION_HORIZONTAL');
+		const direction = directionProp ? directionProp : (props.vertical ? 'DIRECTION_ALL' : 'DIRECTION_HORIZONTAL');
 		hammer.get('pan').set({ direction: Hammer[direction] });
 		hammer.get('swipe').set({ direction: Hammer[direction] });
 	}
@@ -132,5 +132,3 @@ export default class HammerComponent extends React.Component {
 			return React.cloneElement(React.Children.only(this.props.children), props);
 		}
 }
-
-
